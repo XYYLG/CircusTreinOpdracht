@@ -1,16 +1,18 @@
 ﻿using CircusTreinOpdracht.Enums;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CircusTreinOpdracht.Classes
 {
-    internal class Wagon
+    public class Wagon
     {
 
         private List<Animal> animals = new List<Animal>();
+        public ReadOnlyCollection<Animal> Animals => animals.AsReadOnly(); //alleen get (readonly property)
         private const int MaxCapacity = 10;
 
         private int SumAnimalSize()
@@ -58,6 +60,8 @@ namespace CircusTreinOpdracht.Classes
             }
             return result ;
         }
+
+       
 
 
     }

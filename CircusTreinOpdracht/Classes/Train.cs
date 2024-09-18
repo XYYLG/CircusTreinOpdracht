@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CircusTreinOpdracht.Classes
 {
-    internal class Train
+    public class Train
     {
         private List<Wagon> wagons = new List<Wagon>();
-
-
+        public ReadOnlyCollection<Wagon> Wagons => wagons.AsReadOnly(); //alleen get (readonly property)
 
         public void FillTrain(List<Animal> animals)
         {
@@ -46,11 +46,11 @@ namespace CircusTreinOpdracht.Classes
             string result = $"Train with {wagons.Count} wagons\r\n";
             foreach (var wagon in wagons)
             {
-                result += $"{wagon} \r\n" ;           
+                result += $"{wagon} \r\n";
             }
             return result;
         }
 
-        
+
     }
 }

@@ -7,7 +7,7 @@ using CircusTreinOpdracht.Enums;
 
 namespace CircusTreinOpdracht.Classes
 {
-    internal class Animal
+    public class Animal
     {
         public AnimalTypes AnimalType { get; private set; }
         public AnimalSize AnimalSize { get; private set; }
