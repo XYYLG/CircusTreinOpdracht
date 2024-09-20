@@ -15,7 +15,9 @@ List<Animal> AllAnimals = new List<Animal>()
  Train train = new Train();
  train.FillTrain(AllAnimals);
  Console.WriteLine(train);
-  
+
+
+
 
 
 

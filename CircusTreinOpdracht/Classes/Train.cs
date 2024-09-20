@@ -16,7 +16,7 @@ namespace CircusTreinOpdracht.Classes
         {
             var sortedAnimals = animals
                 .OrderBy(a => a.AnimalType)
-                .ThenByDescending(a => a.AnimalSize)
+                .ThenBy(a => a.AnimalSize)
                 .ToList();
 
             foreach (var animal in sortedAnimals)
@@ -50,7 +50,5 @@ namespace CircusTreinOpdracht.Classes
             }
             return result;
         }
-
-
     }
 }
