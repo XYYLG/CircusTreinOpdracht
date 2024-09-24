@@ -56,7 +56,6 @@ namespace CircusTreinOpdracht.Classes.Tests
 
         public void FillTrainTestScenarioTwo()
         {
-            //arrange
             var trainTestMethods = new TrainTestMethods();
             var inputAnimals = new List<Animal>
             {
@@ -78,10 +77,7 @@ namespace CircusTreinOpdracht.Classes.Tests
 
             var train = trainTestMethods.CreateTrain();
 
-            //act
             train.FillTrain(inputAnimals);
-
-            //assert
 
             // Voeg alle dieren uit elke wagon toe aan actualAnimals
             trainTestMethods.AddAnimalToList(train, actualAnimals);
@@ -144,7 +140,6 @@ namespace CircusTreinOpdracht.Classes.Tests
 
         public void FillTrainTestScenarioFour()
         {
-            //arrange
             var trainTestMethods = new TrainTestMethods();
             var inputAnimals = new List<Animal>
             {
@@ -178,7 +173,6 @@ namespace CircusTreinOpdracht.Classes.Tests
 
         public void FillTrainTestScenarioFive()
         {
-            //arrange
             var trainTestMethods = new TrainTestMethods();
             var inputAnimals = new List<Animal>
             {
@@ -212,7 +206,6 @@ namespace CircusTreinOpdracht.Classes.Tests
 
         public void FillTrainTestScenarioSix()
         {
-            //arrange
             var trainTestMethods = new TrainTestMethods();
             var inputAnimals = new List<Animal>
             {
@@ -247,7 +240,6 @@ namespace CircusTreinOpdracht.Classes.Tests
 
         public void FillTrainTestScenarioSeven()
         {
-            //arrange
             var trainTestMethods = new TrainTestMethods();
             var inputAnimals = new List<Animal>
             {
@@ -286,7 +278,6 @@ namespace CircusTreinOpdracht.Classes.Tests
 
         public void FillTrainTestScenarioEight()
         {
-            //arrange
             var trainTestMethods = new TrainTestMethods();
             var inputAnimals = new List<Animal>
             {
@@ -321,7 +312,6 @@ namespace CircusTreinOpdracht.Classes.Tests
 
         public void FillTrainTestScenarioNine()
         {
-            //arrange
             var trainTestMethods = new TrainTestMethods();
             var inputAnimals = new List<Animal>
             {
