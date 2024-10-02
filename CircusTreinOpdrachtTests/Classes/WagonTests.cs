@@ -14,7 +14,7 @@ namespace CircusTreinOpdracht.Classes.Tests
     public class WagonTests
     {
         [TestMethod()]
-        public void AddAnimalHeavyHerbivorTrue()
+        public void AddAnimalH5True()
         {
             //Arrange
             Wagon wagon = new Wagon();
@@ -131,6 +131,20 @@ namespace CircusTreinOpdracht.Classes.Tests
             Assert.IsFalse(wagon.Animals.Contains(H1));
             Assert.AreEqual(1, wagon.Animals.Count);
             Assert.IsFalse(isAdded);
+        }
+
+        [TestMethod()]
+
+        public void AddAnimalC5True()
+        {
+            Wagon wagon = new Wagon();
+            Animal heavyCarnivore = new Animal(Enums.AnimalTypes.Carnivore, Enums.AnimalSize.Heavy, "testAnimal1");
+
+            bool isAdded = wagon.AddAnimal(heavyCarnivore);
+
+            Assert.IsTrue(wagon.Animals.Contains(heavyCarnivore));
+            Assert.AreEqual(1, wagon.Animals.Count);
+            Assert.IsTrue(isAdded);
         }
     }
 }
