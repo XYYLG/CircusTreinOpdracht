@@ -1,12 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CircusTreinOpdracht.Classes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CircusTreinOpdracht.Enums;
-using System.Security.Cryptography.X509Certificates;
+﻿using CircusTreinOpdracht.Enums;
 
 namespace CircusTreinOpdracht.Classes.Tests
 {
@@ -14,14 +6,14 @@ namespace CircusTreinOpdracht.Classes.Tests
     public class WagonTests
     {
         [TestMethod()]
-        public void AddAnimalH5True()
+        public void AddAnimal_H5_IsTrue() 
         {
             //Arrange
             Wagon wagon = new Wagon();
-            Animal heavyHerbivore = new Animal(Enums.AnimalTypes.Herbivore, Enums.AnimalSize.Heavy, "testAnimal1");
+            Animal heavyHerbivore = new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "testAnimal1");
 
             //Act
-            bool isAdded = wagon.AddAnimal(heavyHerbivore);
+            bool isAdded = wagon.TryAddAnimal(heavyHerbivore);
 
             //Assert
             Assert.IsTrue(wagon.Animals.Contains(heavyHerbivore));
@@ -29,16 +21,16 @@ namespace CircusTreinOpdracht.Classes.Tests
             Assert.IsTrue(isAdded);
         }
 
-        [TestMethod()]
-        public void AddAnimalWagonsContainsH5AddH3True()
+        [TestMethod()] 
+        public void AddAnimal_WagonsContainsH5AddH3_IsTrue()
         {
             Wagon wagon = new Wagon();
-            Animal h5 = new Animal(Enums.AnimalTypes.Herbivore, Enums.AnimalSize.Heavy, "testAnimal1");
-            wagon.AddAnimal(h5);
+            Animal h5 = new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "testAnimal1");
+            wagon.TryAddAnimal(h5);
 
-            Animal h3 = new Animal(Enums.AnimalTypes.Herbivore, Enums.AnimalSize.Medium, "testAnimal1");
+            Animal h3 = new Animal(AnimalType.Herbivore, AnimalSize.Medium, "testAnimal1");
 
-            bool isAdded = wagon.AddAnimal(h3);
+            bool isAdded = wagon.TryAddAnimal(h3);
 
             Assert.IsTrue(wagon.Animals.Contains(h3));
             Assert.AreEqual(2, wagon.Animals.Count);
@@ -47,17 +39,17 @@ namespace CircusTreinOpdracht.Classes.Tests
 
         [TestMethod()]
 
-        public void AddAnimalWagonsContainsH5H3AddH1True()
+        public void AddAnimal_WagonsContainsH5H3AddH1_IsTrue()
         {
             Wagon wagon = new Wagon();
-            Animal h5 = new Animal(Enums.AnimalTypes.Herbivore, Enums.AnimalSize.Heavy, "testAnimal1");
-            Animal h3 = new Animal(Enums.AnimalTypes.Herbivore, Enums.AnimalSize.Medium, "testAnimal2");
-            wagon.AddAnimal(h5);
-            wagon.AddAnimal(h3);
+            Animal h5 = new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "testAnimal1");
+            Animal h3 = new Animal(AnimalType.Herbivore, AnimalSize.Medium, "testAnimal2");
+            wagon.TryAddAnimal(h5);
+            wagon.TryAddAnimal(h3);
 
-            Animal h1 = new Animal(Enums.AnimalTypes.Herbivore, Enums.AnimalSize.Light, "testAnimal3");
+            Animal h1 = new Animal(AnimalType.Herbivore, AnimalSize.Light, "testAnimal3");
 
-            bool isAdded = wagon.AddAnimal(h1);
+            bool isAdded = wagon.TryAddAnimal(h1);
 
             Assert.IsTrue(wagon.Animals.Contains(h1));
             Assert.AreEqual(3, wagon.Animals.Count);
@@ -66,17 +58,17 @@ namespace CircusTreinOpdracht.Classes.Tests
 
         [TestMethod()]
 
-        public void AddAnimalWagonContainsH5H3AddC1True()
+        public void AddAnimal_WagonContainsH5H3AddC1_IsTrue()
         {
             Wagon wagon = new Wagon();
-            Animal h5 = new Animal(Enums.AnimalTypes.Herbivore, Enums.AnimalSize.Heavy, "testAnimal1");
-            Animal h3 = new Animal(Enums.AnimalTypes.Herbivore, Enums.AnimalSize.Medium, "testAnimal2");
-            wagon.AddAnimal(h5);
-            wagon.AddAnimal(h3);
+            Animal h5 = new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "testAnimal1");
+            Animal h3 = new Animal(AnimalType.Herbivore, AnimalSize.Medium, "testAnimal2");
+            wagon.TryAddAnimal(h5);
+            wagon.TryAddAnimal(h3);
 
-            Animal C1 = new Animal(Enums.AnimalTypes.Carnivore, Enums.AnimalSize.Light, "testAnimal3");
+            Animal C1 = new Animal(AnimalType.Carnivore, AnimalSize.Light, "testAnimal3");
 
-            bool isAdded = wagon.AddAnimal(C1);
+            bool isAdded = wagon.TryAddAnimal(C1);
 
             Assert.IsTrue(wagon.Animals.Contains(C1));
             Assert.AreEqual(3, wagon.Animals.Count);
@@ -84,17 +76,17 @@ namespace CircusTreinOpdracht.Classes.Tests
         }
 
         [TestMethod()]
-        public void AddAnimalWagonContainsH5H3AddC5False()
+        public void AddAnimal_WagonContainsH5H3AddC5_IsFalse()
         {
             Wagon wagon = new Wagon();
-            Animal h5 = new Animal(Enums.AnimalTypes.Herbivore, Enums.AnimalSize.Heavy, "testAnimal1");
-            Animal h3 = new Animal(Enums.AnimalTypes.Herbivore, Enums.AnimalSize.Medium, "testAnimal2");
-            wagon.AddAnimal(h5);
-            wagon.AddAnimal(h3);
+            Animal h5 = new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "testAnimal1");
+            Animal h3 = new Animal(AnimalType.Herbivore, AnimalSize.Medium, "testAnimal2");
+            wagon.TryAddAnimal(h5);
+            wagon.TryAddAnimal(h3);
 
-            Animal C5 = new Animal(Enums.AnimalTypes.Carnivore, Enums.AnimalSize.Heavy, "testAnimal3");
+            Animal C5 = new Animal(AnimalType.Carnivore, AnimalSize.Heavy, "testAnimal3");
 
-            bool isAdded = wagon.AddAnimal(C5);
+            bool isAdded = wagon.TryAddAnimal(C5);
 
             Assert.IsFalse(wagon.Animals.Contains(C5));
             Assert.AreEqual(2, wagon.Animals.Count);
@@ -102,15 +94,15 @@ namespace CircusTreinOpdracht.Classes.Tests
         }
 
         [TestMethod()]
-        public void AddAnimalWagonContainsC5AddC3False()
+        public void AddAnimal_WagonContainsC5AddC3_IsFalse()
         {
             Wagon wagon = new Wagon();
-            Animal C5 = new Animal(Enums.AnimalTypes.Carnivore, Enums.AnimalSize.Heavy, "testAnimal1");
-            wagon.AddAnimal(C5);
+            Animal C5 = new Animal(AnimalType.Carnivore, AnimalSize.Heavy, "testAnimal1");
+            wagon.TryAddAnimal(C5);
 
-            Animal C3 = new Animal(Enums.AnimalTypes.Carnivore, Enums.AnimalSize.Medium, "testAnimal2");
+            Animal C3 = new Animal(AnimalType.Carnivore, AnimalSize.Medium, "testAnimal2");
 
-            bool isAdded = wagon.AddAnimal(C3);
+            bool isAdded = wagon.TryAddAnimal(C3);
 
             Assert.IsFalse(wagon.Animals.Contains(C3));
             Assert.AreEqual(1, wagon.Animals.Count);
@@ -118,15 +110,15 @@ namespace CircusTreinOpdracht.Classes.Tests
         }
 
         [TestMethod()]
-        public void AddAnimalWagonContainsC5AddH1False()
+        public void AddAnimal_WagonContainsC5AddH1_IsFalse()
         {
             Wagon wagon = new Wagon();
-            Animal C5 = new Animal(Enums.AnimalTypes.Carnivore, Enums.AnimalSize.Heavy, "testAnimal1");
-            wagon.AddAnimal(C5);
+            Animal C5 = new Animal(AnimalType.Carnivore, AnimalSize.Heavy, "testAnimal1");
+            wagon.TryAddAnimal(C5);
 
-            Animal H1 = new Animal(Enums.AnimalTypes.Herbivore, Enums.AnimalSize.Light, "testAnimal2");
+            Animal H1 = new Animal(AnimalType.Herbivore, AnimalSize.Light, "testAnimal2");
 
-            bool isAdded = wagon.AddAnimal(H1);
+            bool isAdded = wagon.TryAddAnimal(H1);
 
             Assert.IsFalse(wagon.Animals.Contains(H1));
             Assert.AreEqual(1, wagon.Animals.Count);
@@ -135,12 +127,12 @@ namespace CircusTreinOpdracht.Classes.Tests
 
         [TestMethod()]
 
-        public void AddAnimalC5True()
+        public void AddAnimal_C5_IsTrue()
         {
             Wagon wagon = new Wagon();
-            Animal heavyCarnivore = new Animal(Enums.AnimalTypes.Carnivore, Enums.AnimalSize.Heavy, "testAnimal1");
+            Animal heavyCarnivore = new Animal(AnimalType.Carnivore, AnimalSize.Heavy, "testAnimal1");
 
-            bool isAdded = wagon.AddAnimal(heavyCarnivore);
+            bool isAdded = wagon.TryAddAnimal(heavyCarnivore);
 
             Assert.IsTrue(wagon.Animals.Contains(heavyCarnivore));
             Assert.AreEqual(1, wagon.Animals.Count);

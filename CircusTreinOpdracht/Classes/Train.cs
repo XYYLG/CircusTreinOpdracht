@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 
 namespace CircusTreinOpdracht.Classes
 {
@@ -15,8 +10,8 @@ namespace CircusTreinOpdracht.Classes
         public void FillTrain(List<Animal> animals)
         {
             var sortedAnimals = animals
-                .OrderBy(a => a.AnimalType)
-                .ThenBy(a => a.AnimalSize)
+                .OrderBy(a => a.Type)
+                .ThenBy(a => a.Size)
                 .ToList();
 
             foreach (var animal in sortedAnimals)
@@ -25,7 +20,7 @@ namespace CircusTreinOpdracht.Classes
 
                 foreach (var wagon in wagons)
                 {
-                    if (wagon.AddAnimal(animal))
+                    if (wagon.TryAddAnimal(animal))
                     {
                         animalAdded = true;
                         break;
@@ -35,7 +30,7 @@ namespace CircusTreinOpdracht.Classes
                 if (!animalAdded)
                 {
                     var newWagon = new Wagon();
-                    newWagon.AddAnimal(animal);
+                    newWagon.TryAddAnimal(animal);
                     wagons.Add(newWagon);
                 }
             }

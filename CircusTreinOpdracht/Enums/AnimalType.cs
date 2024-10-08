@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CircusTreinOpdracht.Enums
 {
-    public enum AnimalTypes
+    public enum AnimalType
     {
         Carnivore,
         Herbivore,

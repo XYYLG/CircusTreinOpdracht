@@ -3,12 +3,12 @@ using CircusTreinOpdracht.Enums;
 
 List<Animal> AllAnimals = new List<Animal>()
 {
-    new Animal(AnimalTypes.Herbivore, AnimalSize.Medium,""),
-    new Animal(AnimalTypes.Herbivore, AnimalSize.Medium,""),
-    new Animal(AnimalTypes.Herbivore, AnimalSize.Medium,""),
-    new Animal(AnimalTypes.Herbivore, AnimalSize.Heavy,""),
-    new Animal(AnimalTypes.Herbivore, AnimalSize.Heavy,""),
-    new Animal(AnimalTypes.Carnivore, AnimalSize.Light,""),
+    new Animal(AnimalType.Herbivore, AnimalSize.Medium,""),
+    new Animal(AnimalType.Herbivore, AnimalSize.Medium,""),
+    new Animal(AnimalType.Herbivore, AnimalSize.Medium,""),
+    new Animal(AnimalType.Herbivore, AnimalSize.Heavy,""),
+    new Animal(AnimalType.Herbivore, AnimalSize.Heavy,""),
+    new Animal(AnimalType.Carnivore, AnimalSize.Light,""),
    
 };
 

@@ -1,19 +1,12 @@
-﻿using CircusTreinOpdracht.Enums;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 
 namespace CircusTreinOpdracht.Classes
 {
     public class Wagon
     {
-
+        private const int MaxCapacity = 10;
         private List<Animal> animals = new List<Animal>();
         public ReadOnlyCollection<Animal> Animals => animals.AsReadOnly(); //alleen get (readonly property)
-        private const int MaxCapacity = 10;
 
         private int SumAnimalSize()
         {
@@ -21,18 +14,17 @@ namespace CircusTreinOpdracht.Classes
 
             for (int i = 0; i < animals.Count; i++)
             {
-                totalSize += (int)animals[i].AnimalSize;
+                totalSize += (int)animals[i].Size;
             }
 
             return totalSize;
         }
 
-
-        public bool AddAnimal(Animal newAnimal)
+        public bool TryAddAnimal(Animal newAnimal)
         {          
             int currentTotalSize = SumAnimalSize(); 
 
-            if (currentTotalSize + (int)newAnimal.AnimalSize > MaxCapacity)
+            if (currentTotalSize + (int)newAnimal.Size > MaxCapacity)
             {
                 return false;
             }
@@ -46,10 +38,9 @@ namespace CircusTreinOpdracht.Classes
             }
 
             animals.Add(newAnimal);
+
             return true;
-
         }
-
       
         public override string ToString()
         {
@@ -60,9 +51,5 @@ namespace CircusTreinOpdracht.Classes
             }
             return result ;
         }
-
-       
-
-
     }
 }

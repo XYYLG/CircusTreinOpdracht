@@ -9,46 +9,45 @@ namespace CircusTreinOpdracht.Classes
 {
     public class Animal
     {
-        public AnimalTypes AnimalType { get; private set; }
-        public AnimalSize AnimalSize { get; private set; }
-        public string AnimalName { get; private set; }
+        public AnimalType Type{ get; private set; }
+        public AnimalSize Size { get; private set; }
+        public string Name { get; private set; }
 
-
-        public Animal(AnimalTypes AnimalType, AnimalSize AnimalSize, string AnimalName )
+        
+        public Animal(AnimalType type, AnimalSize size) : this(type, size, "Animal")
         {
-            this.AnimalType = AnimalType;
-            this.AnimalSize = AnimalSize;
-            this.AnimalName = AnimalName;
         }
-         
 
+        public Animal(AnimalType type, AnimalSize size, string name)
+        {
+            this.Type = type;
+            this.Size = size;
+            this.Name = name;
+        }
+
+        public bool CheckifCompatible(Animal otherAnimal)
+        {
+            if (this.Type == AnimalType.Herbivore && otherAnimal.Type == AnimalType.Herbivore)
+            {
+                return true;
+            }
+            else if (this.Type == AnimalType.Herbivore && otherAnimal.Type == AnimalType.Carnivore && this.Size > otherAnimal.Size)
+            {
+                return true;
+            }
+            else if (this.Type == AnimalType.Carnivore && otherAnimal.Type == AnimalType.Herbivore && this.Size < otherAnimal.Size)
+            {
+                return true;
+            }
+
+            return false;
+        }
 
         public override string ToString()
         {
-            return AnimalName;
-        }
-
-        public bool CheckifCompatible(Animal animal)
-        {
-            if (this.AnimalType == AnimalTypes.Herbivore && animal.AnimalType == AnimalTypes.Herbivore)
-            {
-                return true;
-            }
-            else if (this.AnimalType == AnimalTypes.Herbivore && animal.AnimalType == AnimalTypes.Carnivore && this.AnimalSize > animal.AnimalSize)
-            {
-                return true;
-            }
-            else if (this.AnimalType == AnimalTypes.Carnivore && animal.AnimalType == AnimalTypes.Herbivore && this.AnimalSize < animal.AnimalSize)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return Name;
         }
     }
-
 }
 
 

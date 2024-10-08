@@ -1,22 +1,14 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CircusTreinOpdracht.Classes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CircusTreinOpdracht.Classes.Tests
+﻿namespace CircusTreinOpdracht.Classes.Tests
 {
     [TestClass()]
     public class AnimalTests
     {
         [TestMethod()]
-        public void CheckifCompatibleHeavyHerbivorelightCarnivoreTrue()
+        public void CheckifCompatible_H5_C1_IsTrue()
         {
             //Arrange
-            Animal heavyHerbivore = new Animal(Enums.AnimalTypes.Herbivore, Enums.AnimalSize.Heavy, "testAnimal1");
-            Animal lightCarnivore = new Animal(Enums.AnimalTypes.Carnivore, Enums.AnimalSize.Light, "testAnimal2");
+            Animal heavyHerbivore = new Animal(Enums.AnimalType.Herbivore, Enums.AnimalSize.Heavy, "testAnimal1");
+            Animal lightCarnivore = new Animal(Enums.AnimalType.Carnivore, Enums.AnimalSize.Light, "testAnimal2");
 
             //Act
             bool isCompatible  = heavyHerbivore.CheckifCompatible(lightCarnivore);
@@ -27,10 +19,10 @@ namespace CircusTreinOpdracht.Classes.Tests
 
         [TestMethod()]
 
-        public void CheckifCompatibleLightHerbivoreHeavyCarnivoreFalse()
+        public void CheckifCompatible_H1_C5_IsFalse()
         {
-            Animal lightHerbivore = new Animal(Enums.AnimalTypes.Herbivore, Enums.AnimalSize.Light, "testAnimal1");
-            Animal heavyCarnivore = new Animal(Enums.AnimalTypes.Carnivore, Enums.AnimalSize.Heavy, "testAnimal2");
+            Animal lightHerbivore = new Animal(Enums.AnimalType.Herbivore, Enums.AnimalSize.Light, "testAnimal1");
+            Animal heavyCarnivore = new Animal(Enums.AnimalType.Carnivore, Enums.AnimalSize.Heavy, "testAnimal2");
 
             bool isCompatible = lightHerbivore.CheckifCompatible(heavyCarnivore);
 
@@ -39,10 +31,10 @@ namespace CircusTreinOpdracht.Classes.Tests
 
         [TestMethod()]
 
-        public void CheckifCompatibleMediumCarnivoreLightHerbivoreFalse()
+        public void CheckifCompatible_C3_H1_IsFalse()
         {
-            Animal mediumCarnivore = new Animal(Enums.AnimalTypes.Carnivore, Enums.AnimalSize.Medium, "testAnimal1");
-            Animal lightHerbivore = new Animal(Enums.AnimalTypes.Herbivore, Enums.AnimalSize.Light, "testAnimal2");
+            Animal mediumCarnivore = new Animal(Enums.AnimalType.Carnivore, Enums.AnimalSize.Medium, "testAnimal1");
+            Animal lightHerbivore = new Animal(Enums.AnimalType.Herbivore, Enums.AnimalSize.Light, "testAnimal2");
 
             bool isCompatible = mediumCarnivore.CheckifCompatible(lightHerbivore);
 
@@ -51,10 +43,10 @@ namespace CircusTreinOpdracht.Classes.Tests
 
         [TestMethod()]
 
-        public void CheckifCompatibleMediumHerbivoreMediumHerbivoreTrue()
+        public void CheckifCompatible_H3_H3_IsTrue()
         {
-            Animal mediumHerbivore1 = new Animal(Enums.AnimalTypes.Herbivore, Enums.AnimalSize.Medium, "testAnimal1");
-            Animal mediumHerbivore2 = new Animal(Enums.AnimalTypes.Herbivore, Enums.AnimalSize.Medium, "testAnimal2");
+            Animal mediumHerbivore1 = new Animal(Enums.AnimalType.Herbivore, Enums.AnimalSize.Medium, "testAnimal1");
+            Animal mediumHerbivore2 = new Animal(Enums.AnimalType.Herbivore, Enums.AnimalSize.Medium, "testAnimal2");
 
             bool isCompatible = mediumHerbivore1.CheckifCompatible(mediumHerbivore2);
 
@@ -63,10 +55,10 @@ namespace CircusTreinOpdracht.Classes.Tests
 
         [TestMethod()]
 
-        public void CheckifCompatibleHeavyCarnivoreHeavyCarnivoreFalse()
+        public void CheckifCompatible_C5_C5_IsFalse()
         {
-            Animal heavyCarnivore1 = new Animal(Enums.AnimalTypes.Carnivore, Enums.AnimalSize.Heavy, "testAnimal1");
-            Animal heavyCarnivore2 = new Animal(Enums.AnimalTypes.Carnivore, Enums.AnimalSize.Heavy, "testAnimal2");
+            Animal heavyCarnivore1 = new Animal(Enums.AnimalType.Carnivore, Enums.AnimalSize.Heavy, "testAnimal1");
+            Animal heavyCarnivore2 = new Animal(Enums.AnimalType.Carnivore, Enums.AnimalSize.Heavy, "testAnimal2");
 
             bool isCompatible = heavyCarnivore1.CheckifCompatible(heavyCarnivore2);
 
@@ -75,10 +67,10 @@ namespace CircusTreinOpdracht.Classes.Tests
 
         [TestMethod()]
 
-        public void CheckifCompatibleLightHerbivoreLightHerbivoreTrue()
+        public void CheckifCompatible_H1_H1_IsTrue()
         {
-            Animal lightHerbivore1 = new Animal(Enums.AnimalTypes.Herbivore, Enums.AnimalSize.Light, "testAnimal1");
-            Animal lightHerbivore2 = new Animal(Enums.AnimalTypes.Herbivore, Enums.AnimalSize.Light, "testAnimal2");
+            Animal lightHerbivore1 = new Animal(Enums.AnimalType.Herbivore, Enums.AnimalSize.Light, "testAnimal1");
+            Animal lightHerbivore2 = new Animal(Enums.AnimalType.Herbivore, Enums.AnimalSize.Light, "testAnimal2");
 
             bool isCompatible = lightHerbivore1.CheckifCompatible(lightHerbivore2);
 
@@ -86,10 +78,10 @@ namespace CircusTreinOpdracht.Classes.Tests
         }
 
         [TestMethod()]
-        public void CheckifCompatibleMediumHerbivoreMediumCarnivoreFalse()
+        public void CheckifCompatible_H3_C3_IsFalse()
         {
-            Animal mediumHerbivore = new Animal(Enums.AnimalTypes.Herbivore, Enums.AnimalSize.Medium, "testAnimal1");
-            Animal mediumCarnivore = new Animal(Enums.AnimalTypes.Carnivore, Enums.AnimalSize.Medium, "testAnimal2");
+            Animal mediumHerbivore = new Animal(Enums.AnimalType.Herbivore, Enums.AnimalSize.Medium, "testAnimal1");
+            Animal mediumCarnivore = new Animal(Enums.AnimalType.Carnivore, Enums.AnimalSize.Medium, "testAnimal2");
 
             bool isCompatible = mediumHerbivore.CheckifCompatible(mediumCarnivore);
 
@@ -98,10 +90,10 @@ namespace CircusTreinOpdracht.Classes.Tests
 
         [TestMethod()]
 
-        public void CheckifCompatibleHeavyHerbivoreMediumCarnivoreTrue()
+        public void CheckifCompatible_H5_C3_IsTrue()
         {
-            Animal heavyHerbivore = new Animal(Enums.AnimalTypes.Herbivore, Enums.AnimalSize.Heavy, "testAnimal1");
-            Animal mediumCarnivore = new Animal(Enums.AnimalTypes.Carnivore, Enums.AnimalSize.Medium, "testAnimal2");
+            Animal heavyHerbivore = new Animal(Enums.AnimalType.Herbivore, Enums.AnimalSize.Heavy, "testAnimal1");
+            Animal mediumCarnivore = new Animal(Enums.AnimalType.Carnivore, Enums.AnimalSize.Medium, "testAnimal2");
 
             bool isCompatible = heavyHerbivore.CheckifCompatible(mediumCarnivore);
 
@@ -109,10 +101,10 @@ namespace CircusTreinOpdracht.Classes.Tests
         }
 
         [TestMethod()]
-        public void CheckifCompatibleLightCarnivoreLightHerbivoreFalse()
+        public void CheckifCompatible_C1_H1_IsFalse()
         {
-            Animal lightCarnivore = new Animal(Enums.AnimalTypes.Carnivore, Enums.AnimalSize.Light, "testAnimal1");
-            Animal lightHerbivore = new Animal(Enums.AnimalTypes.Herbivore, Enums.AnimalSize.Light, "testAnimal2");
+            Animal lightCarnivore = new Animal(Enums.AnimalType.Carnivore, Enums.AnimalSize.Light, "testAnimal1");
+            Animal lightHerbivore = new Animal(Enums.AnimalType.Herbivore, Enums.AnimalSize.Light, "testAnimal2");
 
             bool isCompatible = lightCarnivore.CheckifCompatible(lightHerbivore);
 
@@ -120,10 +112,10 @@ namespace CircusTreinOpdracht.Classes.Tests
         }
 
         [TestMethod()]
-        public void CheckifCompatibleLightHerbivoreMediumHerbivoreTrue()
+        public void CheckifCompatible_H1_H3_IsTrue()
         {
-            Animal lightHerbivore = new Animal(Enums.AnimalTypes.Herbivore, Enums.AnimalSize.Light, "testAnimal1");
-            Animal mediumHerbivore = new Animal(Enums.AnimalTypes.Herbivore, Enums.AnimalSize.Medium, "testAnimal2");
+            Animal lightHerbivore = new Animal(Enums.AnimalType.Herbivore, Enums.AnimalSize.Light, "testAnimal1");
+            Animal mediumHerbivore = new Animal(Enums.AnimalType.Herbivore, Enums.AnimalSize.Medium, "testAnimal2");
 
             bool isCompatible = lightHerbivore.CheckifCompatible(mediumHerbivore);
 
