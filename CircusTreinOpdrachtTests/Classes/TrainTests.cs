@@ -17,18 +17,10 @@ namespace CircusTreinOpdracht.Classes.Tests
         {
             //arrange
             var trainTestMethods = new TrainTestMethods();
-            var inputAnimals = new List<Animal>
-            {
-                new Animal(AnimalType.Herbivore, AnimalSize.Light,"HL"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Light,"HL"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Light,"HL"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Light,"HL"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Light,"HL"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium,"HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium,"HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium,"HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy ,"HH"),
-            };
+            var inputAnimals = new List<Animal>();
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(5, AnimalSize.Light, AnimalType.Herbivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(3, AnimalSize.Medium, AnimalType.Herbivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(1, AnimalSize.Heavy, AnimalType.Herbivore));
 
             var actualAnimals = new List<Animal>
             {
@@ -55,18 +47,11 @@ namespace CircusTreinOpdracht.Classes.Tests
         public void FillTrainTest_ScenarioTwo()
         {
             var trainTestMethods = new TrainTestMethods();
-            var inputAnimals = new List<Animal>
-            {
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Light, "CL"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Medium, "CM"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Medium, "CM"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Medium, "CM"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Heavy, "CH"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Heavy, "CH")
-            };
+            var inputAnimals = new List<Animal>();
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(1, AnimalSize.Light, AnimalType.Carnivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(3, AnimalSize.Medium, AnimalType.Carnivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(3, AnimalSize.Heavy, AnimalType.Herbivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(2, AnimalSize.Heavy, AnimalType.Carnivore));
 
             var actualAnimals = new List<Animal>
             {
@@ -90,37 +75,13 @@ namespace CircusTreinOpdracht.Classes.Tests
         public void FillTrainTest_ScenarioThree()
         {
             var trainTestMethods = new TrainTestMethods();
-
-            // List<Animal> animals = new List<Animal>();
-            // animals.AddRange(AnimalFactory.CreateAnimals(5, AnimalSize.Light, ....));
-            // animals.AddRange(AnimalFactory.CreateAnimals(5, AnimalSize.Medium));
-            // animals.AddRange(AnimalFactory.CreateAnimals(5, AnimalSize.Heavy));
-            // animals.AddRange(AnimalFactory.CreateAnimals(5, AnimalSize.Light));
-
-            var inputAnimals = new List<Animal>
-            {
-                new Animal(AnimalType.Herbivore, AnimalSize.Light, "HL"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Light, "HL"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Light, "HL"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Light, "HL"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Light, "HL"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Light, "CL"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Light, "CL"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Medium, "CM"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Medium, "CM"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Heavy, "CH"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Heavy, "CH")
-            };
+            var inputAnimals = new List<Animal>();
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(5, AnimalSize.Light, AnimalType.Herbivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(5, AnimalSize.Medium, AnimalType.Herbivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(5, AnimalSize.Heavy, AnimalType.Herbivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(2, AnimalSize.Light, AnimalType.Carnivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(2, AnimalSize.Medium, AnimalType.Carnivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(2, AnimalSize.Heavy, AnimalType.Carnivore));
 
             var actualAnimals = new List<Animal>
             {
@@ -146,15 +107,10 @@ namespace CircusTreinOpdracht.Classes.Tests
         public void FillTrainTest_ScenarioFour()
         {
             var trainTestMethods = new TrainTestMethods();
-            var inputAnimals = new List<Animal>
-            {
-                new Animal(AnimalType.Herbivore, AnimalSize.Light, "HL"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-            };
+            var inputAnimals = new List<Animal>();
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(1, AnimalSize.Light, AnimalType.Herbivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(3, AnimalSize.Medium, AnimalType.Herbivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(2, AnimalSize.Heavy, AnimalType.Herbivore));
 
             var actualAnimals = new List<Animal>
             {
@@ -178,15 +134,10 @@ namespace CircusTreinOpdracht.Classes.Tests
         public void FillTrainTest_ScenarioFive()
         {
             var trainTestMethods = new TrainTestMethods();
-            var inputAnimals = new List<Animal>
-            {
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Light, "CL")
-            };
+            var inputAnimals = new List<Animal>();
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(3, AnimalSize.Medium, AnimalType.Herbivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(2, AnimalSize.Heavy, AnimalType.Herbivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(1, AnimalSize.Light, AnimalType.Carnivore));
 
             var actualAnimals = new List<Animal>
             {
@@ -207,20 +158,13 @@ namespace CircusTreinOpdracht.Classes.Tests
         }
 
         [TestMethod]
-
         public void FillTrainTest_ScenarioSix()
         {
             var trainTestMethods = new TrainTestMethods();
-            var inputAnimals = new List<Animal>
-            {
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Light, "CL"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Light, "CL")
-
-            };
+            var inputAnimals = new List<Animal>();
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(2, AnimalSize.Medium, AnimalType.Herbivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(2, AnimalSize.Heavy, AnimalType.Herbivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(2, AnimalSize.Light, AnimalType.Carnivore));
 
             var actualAnimals = new List<Animal>
             {
@@ -244,20 +188,10 @@ namespace CircusTreinOpdracht.Classes.Tests
         public void FillTrainTest_ScenarioSeven()
         {
             var trainTestMethods = new TrainTestMethods();
-            var inputAnimals = new List<Animal>
-            {
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Light, "CL"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Light, "CL")
-
-            };
+            var inputAnimals = new List<Animal>();
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(6, AnimalSize.Medium, AnimalType.Herbivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(2, AnimalSize.Heavy, AnimalType.Herbivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(2, AnimalSize.Light, AnimalType.Carnivore));
 
             var actualAnimals = new List<Animal>
             {
@@ -282,16 +216,10 @@ namespace CircusTreinOpdracht.Classes.Tests
         public void FillTrainTest_ScenarioEight()
         {
             var trainTestMethods = new TrainTestMethods();
-            var inputAnimals = new List<Animal>
-            {
-                new Animal(AnimalType.Carnivore, AnimalSize.Light, "CL"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                
-            };
+            var inputAnimals = new List<Animal>();
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(1, AnimalSize.Light, AnimalType.Carnivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(3, AnimalSize.Medium, AnimalType.Herbivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(2, AnimalSize.Heavy, AnimalType.Herbivore));
 
             var actualAnimals = new List<Animal>
             {
@@ -316,18 +244,11 @@ namespace CircusTreinOpdracht.Classes.Tests
         public void FillTrainTest_ScenarioNine()
         {
             var trainTestMethods = new TrainTestMethods();
-            var inputAnimals = new List<Animal>
-            {
-                new Animal(AnimalType.Carnivore, AnimalSize.Light, "CL"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Light, "HL"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Light, "HL"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Light, "HL"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Light, "HL"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Light, "HL"),
-            };
+            var inputAnimals = new List<Animal>();
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(1, AnimalSize.Light, AnimalType.Carnivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(1, AnimalSize.Heavy, AnimalType.Herbivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(2, AnimalSize.Medium, AnimalType.Herbivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(5, AnimalSize.Light, AnimalType.Herbivore));
 
             var actualAnimals = new List<Animal>
             {
@@ -351,15 +272,13 @@ namespace CircusTreinOpdracht.Classes.Tests
         public void FillTrainTest_ScenarioTen()
         {
             var trainTestMethods = new TrainTestMethods();
-            var inputAnimals = new List<Animal>
-            {
-                new Animal(AnimalType.Carnivore, AnimalSize.Light, "CL"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Medium, "CM"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Heavy, "CH"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Light, "HL")
-            };
+            var inputAnimals = new List<Animal>();
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(1, AnimalSize.Light, AnimalType.Carnivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(1, AnimalSize.Medium, AnimalType.Carnivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(1, AnimalSize.Heavy, AnimalType.Carnivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(1, AnimalSize.Heavy, AnimalType.Herbivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(1, AnimalSize.Medium, AnimalType.Herbivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(1, AnimalSize.Light, AnimalType.Herbivore));
 
             var actualAnimals = new List<Animal>
             {
@@ -379,24 +298,16 @@ namespace CircusTreinOpdracht.Classes.Tests
         }
 
         [TestMethod]
-
         public void FillTrainTest_ScenarioEleven()
         {
             var trainTestMethods = new TrainTestMethods();
-            var inputAnimals = new List<Animal>
-            {
-                new Animal(AnimalType.Carnivore, AnimalSize.Light, "CL"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Medium, "CM"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Heavy, "CH"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Heavy, "CH"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Light, "HL")
-            };
+            var inputAnimals = new List<Animal>();
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(1, AnimalSize.Light, AnimalType.Carnivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(1, AnimalSize.Medium, AnimalType.Carnivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(2, AnimalSize.Heavy, AnimalType.Carnivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(1, AnimalSize.Heavy, AnimalType.Herbivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(5, AnimalSize.Medium, AnimalType.Herbivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(1, AnimalSize.Light, AnimalType.Herbivore));
 
             var actualAnimals = new List<Animal>
             {
@@ -420,14 +331,11 @@ namespace CircusTreinOpdracht.Classes.Tests
         public void FillTrainTest_ScenarioTwelve()
         {
             var trainTestMethods = new TrainTestMethods();
-            var inputAnimals = new List<Animal>
-            {
-                new Animal(AnimalType.Carnivore, AnimalSize.Light, "CL"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Light, "HL")
-            };
+            var inputAnimals = new List<Animal>();
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(1, AnimalSize.Light, AnimalType.Carnivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(2, AnimalSize.Heavy, AnimalType.Herbivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(1, AnimalSize.Medium, AnimalType.Herbivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(1, AnimalSize.Light, AnimalType.Herbivore));
 
             var actualAnimals = new List<Animal>
             {
@@ -451,17 +359,10 @@ namespace CircusTreinOpdracht.Classes.Tests
         public void FillTrainTest_ScenarioThirteen()
         {
             var trainTestMethods = new TrainTestMethods();
-            var inputAnimals = new List<Animal>
-            {
-                new Animal(AnimalType.Carnivore, AnimalSize.Light, "CL"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Light, "CL"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Light, "CL"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-            };
+            var inputAnimals = new List<Animal>();
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(3, AnimalSize.Light, AnimalType.Carnivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(3, AnimalSize.Heavy, AnimalType.Herbivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(2, AnimalSize.Medium, AnimalType.Herbivore));
 
             var actualAnimals = new List<Animal>
             {
@@ -485,33 +386,12 @@ namespace CircusTreinOpdracht.Classes.Tests
         public void FillTrainTest_ScenarioFourteen()
         {
             var trainTestMethods = new TrainTestMethods();
-            var inputAnimals = new List<Animal>
-            {
-                new Animal(AnimalType.Carnivore, AnimalSize.Heavy, "CH"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Heavy, "CH"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Heavy, "CH"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Medium, "CM"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Medium, "CM"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Medium, "CM"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Light, "CL"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Light, "CL"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Light, "CL"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Light, "CL"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Light, "CL"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Light, "CL"),
-                new Animal(AnimalType.Carnivore, AnimalSize.Light, "CL"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Heavy, "HH"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM"),
-                new Animal(AnimalType.Herbivore, AnimalSize.Medium, "HM")
-            };
+            var inputAnimals = new List<Animal>();
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(3, AnimalSize.Heavy, AnimalType.Carnivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(3, AnimalSize.Medium, AnimalType.Carnivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(7, AnimalSize.Light, AnimalType.Carnivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(6, AnimalSize.Heavy, AnimalType.Herbivore));
+            inputAnimals.AddRange(AnimalFactory.CreateAnimals(5, AnimalSize.Medium, AnimalType.Herbivore));
 
             var actualAnimals = new List<Animal>
             {
