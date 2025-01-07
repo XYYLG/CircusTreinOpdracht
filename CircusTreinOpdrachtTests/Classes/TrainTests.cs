@@ -1,11 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CircusTreinOpdracht.Classes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CircusTreinOpdracht.Enums;
+﻿using CircusTreinOpdracht.Enums;
 
 namespace CircusTreinOpdracht.Classes.Tests
 {
