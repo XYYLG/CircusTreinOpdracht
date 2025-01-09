@@ -4,8 +4,8 @@ namespace CircusTreinOpdracht.Classes
 {
     public class Train
     {
-        private List<Wagon> wagons = new List<Wagon>();
-        public ReadOnlyCollection<Wagon> Wagons => wagons.AsReadOnly(); //alleen get (readonly property)
+        private List<Wagon> _wagons = new List<Wagon>();
+        public ReadOnlyCollection<Wagon> Wagons => _wagons.AsReadOnly(); //alleen get (readonly property)
 
         public void FillTrain(List<Animal> animals)
         {
@@ -18,7 +18,7 @@ namespace CircusTreinOpdracht.Classes
             {
                 bool animalAdded = false;
 
-                foreach (var wagon in wagons)
+                foreach (var wagon in _wagons)
                 {
                     if (wagon.TryAddAnimal(animal))
                     {
@@ -31,15 +31,15 @@ namespace CircusTreinOpdracht.Classes
                 {
                     var newWagon = new Wagon();
                     newWagon.TryAddAnimal(animal);
-                    wagons.Add(newWagon);
+                    _wagons.Add(newWagon);
                 }
             }
         }
 
         public override string ToString()
         {
-            string result = $"Train with {wagons.Count} wagons\r\n";
-            foreach (var wagon in wagons)
+            string result = $"Train with {_wagons.Count} wagons\r\n";
+            foreach (var wagon in _wagons)
             {
                 result += $"{wagon} \r\n";
             }
